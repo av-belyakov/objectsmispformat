@@ -290,3 +290,6 @@ type AttributeMispFormat struct {
 	Distribution   string `json:"distribution"`
 	ObjectRelation string `json:"object_relation"`
 }
+
+// ListEventObjectTags временное хранилище для тегов полученных из event.object.tags
+type ListEventObjectTags []string
