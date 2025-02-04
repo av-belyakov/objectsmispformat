@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (omisp OrganisationsMispFormat) GetOrganisationsMisp() OrganisationsMispFormat {
 	return omisp

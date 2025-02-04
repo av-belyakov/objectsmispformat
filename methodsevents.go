@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 import (
 	"fmt"

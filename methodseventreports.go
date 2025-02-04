@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func NewEventReports() *EventReports {
 	return &EventReports{}

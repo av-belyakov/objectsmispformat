@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (umisp UsersMispFormat) GetUsersMisp() UsersMispFormat {
 	return umisp

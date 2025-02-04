@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (smisp ServersMispFormat) GetServersMisp() ServersMispFormat {
 	return smisp

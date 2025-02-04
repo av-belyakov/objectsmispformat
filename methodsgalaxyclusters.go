@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (gcmisp GalaxyClustersMispFormat) GetGalaxyClustersMisp() GalaxyClustersMispFormat {
 	return gcmisp

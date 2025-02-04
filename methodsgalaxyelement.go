@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (gmisp GalaxyElementMispFormat) GetGalaxyElementMisp() GalaxyElementMispFormat {
 	return gmisp

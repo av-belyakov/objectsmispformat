@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (tmisp TagsMispFormat) GetTagsMisp() TagsMispFormat {
 	return tmisp

@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 func (fmisp FeedsMispFormat) GetFeedsMisp() FeedsMispFormat {
 	return fmisp

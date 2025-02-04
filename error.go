@@ -1,4 +1,4 @@
-package datamodels
+package objectsmispformat
 
 /*
 Пример ошибок от MISP
