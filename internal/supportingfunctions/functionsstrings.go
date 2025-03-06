@@ -1,48 +1,29 @@
 package supportingfunctions
 
 import (
-	"crypto/md5"
-	"crypto/sha1"
-	"crypto/sha256"
-	"crypto/sha512"
 	"errors"
 	"regexp"
 )
 
 // CheckStringHash определеяет тип хеш суммы по ее длинне
-func CheckStringHash(value string) (string, int, error) {
-	size := len([]byte(value))
+func CheckStringHash(v string) (string, int, error) {
+	size := len(v)
 
 	reg := regexp.MustCompile(`^[a-fA-F0-9]+$`)
-	if !reg.MatchString(value) {
+	if !reg.MatchString(v) {
 		return "", size, errors.New("the value must consist of hexadecimal characters only")
 	}
 
 	switch size {
-	case md5.Size:
+	case 32:
 		return "md5", size, nil
-	case sha1.Size:
+	case 40:
 		return "sha1", size, nil
-	case sha256.Size:
+	case 64:
 		return "sha256", size, nil
-	case sha512.Size:
+	case 128:
 		return "sha512", size, nil
 	}
 
 	return "other", size, nil
 }
-
-/*
-func CheckHashSum(hsum string) string {
-	switch len(hsum) {
-	case 32:
-		return "md5"
-	case 40:
-		return "sha1"
-	case 64:
-		return "sha256"
-	}
-
-	return "other"
-}
-*/
