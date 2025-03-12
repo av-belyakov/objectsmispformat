@@ -13,34 +13,34 @@ func TestAttributes(t *testing.T) {
 	auuid := uuid.NewString()
 
 	mainAttributes := objectsmispformat.NewAttributes()
-	mainAttributes.EventId = "te7d2"
-	mainAttributes.ObjectId = "d1329-1s"
-	mainAttributes.ObjectRelation = "some object relation"
-	mainAttributes.Category = "category one"
-	mainAttributes.Type = "some type"
-	mainAttributes.Value = "some value"
-	mainAttributes.Uuid = auuid
-	mainAttributes.Distribution = "new distr"
-	mainAttributes.SharingGroupId = "7899312"
-	mainAttributes.Comment = "fast comment"
-	mainAttributes.ToIds = true
-	mainAttributes.Deleted = false
-	mainAttributes.DisableCorrelation = false
+	mainAttributes.SetEventId("te7d2")
+	mainAttributes.SetObjectId("d1329-1s")
+	mainAttributes.SetObjectRelation("some object relation")
+	mainAttributes.SetCategory("category one")
+	mainAttributes.SetType("some type")
+	mainAttributes.SetValue("some value")
+	mainAttributes.SetUuid(auuid)
+	mainAttributes.SetDistribution("new distr")
+	mainAttributes.SetSharingGroupId("7899312")
+	mainAttributes.SetComment("fast comment")
+	mainAttributes.SetToIds(true)
+	mainAttributes.SetDeleted(false)
+	mainAttributes.SetDisableCorrelation(false)
 
 	incomingAttributes := objectsmispformat.NewAttributes()
-	incomingAttributes.EventId = "gsq6344"
-	incomingAttributes.ObjectId = "avb29-2s"
-	incomingAttributes.ObjectRelation = "some object relation with code"
-	incomingAttributes.Category = "category two"
-	incomingAttributes.Type = "my some type"
-	incomingAttributes.Value = "my some value"
-	incomingAttributes.Uuid = auuid
-	incomingAttributes.Distribution = "new distr"
-	incomingAttributes.SharingGroupId = "632848"
-	incomingAttributes.Comment = "fast alfa comment"
-	incomingAttributes.ToIds = true
-	incomingAttributes.Deleted = true
-	incomingAttributes.DisableCorrelation = true
+	incomingAttributes.SetEventId("gsq6344")
+	incomingAttributes.SetObjectId("avb29-2s")
+	incomingAttributes.SetObjectRelation("some object relation with code")
+	incomingAttributes.SetCategory("category two")
+	incomingAttributes.SetType("my some type")
+	incomingAttributes.SetValue("my some value")
+	incomingAttributes.SetUuid(auuid)
+	incomingAttributes.SetDistribution("new distr")
+	incomingAttributes.SetSharingGroupId("632848")
+	incomingAttributes.SetComment("fast alfa comment")
+	incomingAttributes.SetToIds(true)
+	incomingAttributes.SetDeleted(true)
+	incomingAttributes.SetDisableCorrelation(true)
 
 	t.Run("Test comparison", func(t *testing.T) {
 		isEqual := incomingAttributes.Comparison(mainAttributes)

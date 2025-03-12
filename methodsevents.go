@@ -20,10 +20,6 @@ func NewEventMisp() *EventsMispFormat {
 	}
 }
 
-func (e EventsMispFormat) GetEventsMisp() EventsMispFormat {
-	return e
-}
-
 func (e *EventsMispFormat) CleanEventsMispFormat() {
 	e.OrgId = ""
 	e.OrgcId = ""

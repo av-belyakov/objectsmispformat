@@ -12,39 +12,29 @@ func NewListFormatsMISP() *ListFormatsMISP {
 	}
 }
 
-// GetID возвращает уникальный идентификатор
+// GetID уникальный идентификатор
 func (o *ListFormatsMISP) GetID() string {
 	return o.ID
 }
 
-// GetEvent возвращает объект Event
-func (o *ListFormatsMISP) GetEvent() *EventsMispFormat {
-	return o.Event
-}
-
-// GetReports возвращает объект Reports
-func (o *ListFormatsMISP) GetReports() *EventReports {
-	return o.Reports
-}
-
-// GetAttributes возвращает объект Attributes
-func (o *ListFormatsMISP) GetAttributes() []*AttributesMispFormat {
-	return o.Attributes
-}
-
-// GetObjects возвращает объект Objects
-func (o *ListFormatsMISP) GetObjects() map[int]*ObjectsMispFormat {
-	return o.Objects
-}
-
-// GetObjectTags возвращает объект ObjectTags
-func (o *ListFormatsMISP) GetObjectTags() *ListEventObjectTags {
-	return o.ObjectTags
+// SetID уникальный идентификатор
+func (o *ListFormatsMISP) SetID(v string) {
+	o.ID = v
 }
 
 // ComparisonID выполняет сравнение уникальных идентификаторов
 func (o *ListFormatsMISP) ComparisonID(v string) bool {
 	return o.ID == v
+}
+
+// GetEvent объект Event
+func (o *ListFormatsMISP) GetEvent() *EventsMispFormat {
+	return o.Event
+}
+
+// SetEvent объект Event
+func (o *ListFormatsMISP) SetEvent(v EventsMispFormat) {
+	o.Event = &v
 }
 
 // ComparisonEvent выполняет сравнение свойств объекта Event
@@ -57,6 +47,16 @@ func (o *ListFormatsMISP) MatchingAndReplacementEvents(v EventsMispFormat) Event
 	return v.MatchingAndReplacement(*o.Event)
 }
 
+// GetReports объект Reports
+func (o *ListFormatsMISP) GetReports() *EventReports {
+	return o.Reports
+}
+
+// SetReports объект Reports
+func (o *ListFormatsMISP) SetReports(v EventReports) {
+	o.Reports = &v
+}
+
 // ComparisonReports выполняет сравнение свойств объекта Reports
 func (o *ListFormatsMISP) ComparisonReports(v *EventReports) bool {
 	return o.Reports.Comparison(v)
@@ -65,6 +65,16 @@ func (o *ListFormatsMISP) ComparisonReports(v *EventReports) bool {
 // MatchingAndReplacementReport выполняет сопоставление элементов объекта и их замену
 func (o *ListFormatsMISP) MatchingAndReplacementReport(v EventReports) EventReports {
 	return v.MatchingAndReplacement(*o.Reports)
+}
+
+// GetAttributes объект Attributes
+func (o *ListFormatsMISP) GetAttributes() []*AttributesMispFormat {
+	return o.Attributes
+}
+
+// GetAttributes объект Attributes
+func (o *ListFormatsMISP) SetAttributes(v []*AttributesMispFormat) {
+	o.Attributes = v
 }
 
 // ComparisonAttributes выполняет сравнение свойств объекта Attributes
@@ -108,6 +118,16 @@ func (o *ListFormatsMISP) MatchingAndReplacementAttributes(v []*AttributesMispFo
 	return v
 }
 
+// GetObjects объект Objects
+func (o *ListFormatsMISP) GetObjects() map[int]*ObjectsMispFormat {
+	return o.Objects
+}
+
+// SetObjects объект Objects
+func (o *ListFormatsMISP) SetObjects(v map[int]*ObjectsMispFormat) {
+	o.Objects = v
+}
+
 // ComparisonObjects выполняет сравнение свойств объекта Objects
 func (o *ListFormatsMISP) ComparisonObjects(v map[int]*ObjectsMispFormat) bool {
 	if len(o.Objects) != len(v) {
@@ -146,6 +166,16 @@ func (o *ListFormatsMISP) MatchingAndReplacementObjects(v map[int]*ObjectsMispFo
 	}
 
 	return v
+}
+
+// GetObjectTags объект ObjectTags
+func (o *ListFormatsMISP) GetObjectTags() *ListEventObjectTags {
+	return o.ObjectTags
+}
+
+// SetObjectTags объект ObjectTags
+func (o *ListFormatsMISP) SetObjectTags(v ListEventObjectTags) {
+	o.ObjectTags = &v
 }
 
 // ComparisonObjectTags выполняет сравнение свойств объекта ObjectTags
