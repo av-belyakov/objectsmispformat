@@ -4,7 +4,7 @@ func (omisp OrganisationsMispFormat) GetOrganisationsMisp() OrganisationsMispFor
 	return omisp
 }
 
-func (omisp *OrganisationsMispFormat) SetValueNameOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueNameOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (omisp *OrganisationsMispFormat) SetValueNameOrganisationsMisp(v interface{
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueDateCreatedOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueDateCreatedOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (omisp *OrganisationsMispFormat) SetValueDateCreatedOrganisationsMisp(v int
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueDateModifiedOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueDateModifiedOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (omisp *OrganisationsMispFormat) SetValueDateModifiedOrganisationsMisp(v in
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueDescriptionOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueDescriptionOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -52,7 +52,7 @@ func (omisp *OrganisationsMispFormat) SetValueDescriptionOrganisationsMisp(v int
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueTypeOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueTypeOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -64,7 +64,7 @@ func (omisp *OrganisationsMispFormat) SetValueTypeOrganisationsMisp(v interface{
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueNationalityOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueNationalityOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -76,7 +76,7 @@ func (omisp *OrganisationsMispFormat) SetValueNationalityOrganisationsMisp(v int
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueSectorOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueSectorOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -88,7 +88,7 @@ func (omisp *OrganisationsMispFormat) SetValueSectorOrganisationsMisp(v interfac
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueCreatedByOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueCreatedByOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -100,7 +100,7 @@ func (omisp *OrganisationsMispFormat) SetValueCreatedByOrganisationsMisp(v inter
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueUuidOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueUuidOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -112,7 +112,7 @@ func (omisp *OrganisationsMispFormat) SetValueUuidOrganisationsMisp(v interface{
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueContactsOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueContactsOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -124,7 +124,7 @@ func (omisp *OrganisationsMispFormat) SetValueContactsOrganisationsMisp(v interf
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueLandingpageOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueLandingpageOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -136,7 +136,7 @@ func (omisp *OrganisationsMispFormat) SetValueLandingpageOrganisationsMisp(v int
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueUserCountOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueUserCountOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -148,7 +148,7 @@ func (omisp *OrganisationsMispFormat) SetValueUserCountOrganisationsMisp(v inter
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueCreatedByEmailOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueCreatedByEmailOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -160,7 +160,7 @@ func (omisp *OrganisationsMispFormat) SetValueCreatedByEmailOrganisationsMisp(v 
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueRestrictedToDomainOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueRestrictedToDomainOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	switch v := v.(type) {
@@ -177,7 +177,7 @@ func (omisp *OrganisationsMispFormat) SetValueRestrictedToDomainOrganisationsMis
 	return isSuccess
 }
 
-func (omisp *OrganisationsMispFormat) SetValueLocalOrganisationsMisp(v interface{}) bool {
+func (omisp *OrganisationsMispFormat) SetValueLocalOrganisationsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {

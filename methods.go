@@ -1,5 +1,7 @@
 package objectsmispformat
 
+import "slices"
+
 func NewListFormatsMISP() *ListFormatsMISP {
 	return &ListFormatsMISP{
 		Event:      NewEventMisp(),
@@ -50,9 +52,21 @@ func (o *ListFormatsMISP) ComparisonEvent(v *EventsMispFormat) bool {
 	return o.Event.Comparison(v)
 }
 
+// MatchingAndReplacementEvents выполняет сопоставление элементов объекта и их замену
+func (o *ListFormatsMISP) MatchingAndReplacementEvents(v EventsMispFormat) {
+	newEvent := o.Event.MatchingAndReplacement(v)
+	o.Event = &newEvent
+}
+
 // ComparisonReports выполняет сравнение свойств объекта Reports
 func (o *ListFormatsMISP) ComparisonReports(v *EventReports) bool {
 	return o.Reports.Comparison(v)
+}
+
+// MatchingAndReplacementReport выполняет сопоставление элементов объекта и их замену
+func (o *ListFormatsMISP) MatchingAndReplacementReport(v EventReports) {
+	newEventReport := o.Reports.MatchingAndReplacement(v)
+	o.Reports = &newEventReport
 }
 
 // ComparisonAttributes выполняет сравнение свойств объекта Attributes
@@ -81,6 +95,23 @@ func (o *ListFormatsMISP) ComparisonAttributes(v []*AttributesMispFormat) bool {
 	return true
 }
 
+// MatchingAndReplacementAttributes выполняет сопоставление элементов объекта и их замену
+func (o *ListFormatsMISP) MatchingAndReplacementAttributes(v []*AttributesMispFormat) {
+	if len(o.Attributes) != len(v) {
+		return
+	}
+
+	currentAttributes := o.GetAttributes()
+	for i := 0; i < len(currentAttributes); i++ {
+		for j := 0; j < len(v); j++ {
+			if currentAttributes[i].ObjectId == v[j].ObjectId {
+				newAttr := currentAttributes[i].MatchingAndReplacement(*v[j])
+				currentAttributes[i] = &newAttr
+			}
+		}
+	}
+}
+
 // ComparisonObjects выполняет сравнение свойств объекта Objects
 func (o *ListFormatsMISP) ComparisonObjects(v map[int]*ObjectsMispFormat) bool {
 	if len(o.Objects) != len(v) {
@@ -107,6 +138,20 @@ func (o *ListFormatsMISP) ComparisonObjects(v map[int]*ObjectsMispFormat) bool {
 	return true
 }
 
+// MatchingAndReplacementObjects выполняет сопоставление элементов объекта и их замену
+func (o *ListFormatsMISP) MatchingAndReplacementObjects(v map[int]*ObjectsMispFormat) map[int]*ObjectsMispFormat {
+	for _, currentObject := range o.GetObjects() {
+		for key, addedObject := range v {
+			if currentObject.ID == addedObject.ID {
+				newAddObject := currentObject.MatchingAndReplacement(*addedObject)
+				v[key] = &newAddObject
+			}
+		}
+	}
+
+	return v
+}
+
 // ComparisonObjectTags выполняет сравнение свойств объекта ObjectTags
 func (o *ListFormatsMISP) ComparisonObjectTags(v *ListEventObjectTags) bool {
 	if len(*o.ObjectTags) != len(v.GetListTags()) {
@@ -129,4 +174,20 @@ func (o *ListFormatsMISP) ComparisonObjectTags(v *ListEventObjectTags) bool {
 	}
 
 	return true
+}
+
+// MatchingAndReplacementListEventObjectTags выполняет сопоставление элементов объекта и их замену
+func (o *ListFormatsMISP) MatchingAndReplacementListEventObjectTags(v ListEventObjectTags) ListEventObjectTags {
+	for _, currentObject := range o.ObjectTags.GetListTags() {
+		var isEqual bool
+		if slices.Contains(v.GetListTags(), currentObject) {
+			isEqual = true
+		}
+
+		if !isEqual {
+			v.SetTag(currentObject)
+		}
+	}
+
+	return v
 }

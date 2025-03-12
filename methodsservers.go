@@ -4,7 +4,7 @@ func (smisp ServersMispFormat) GetServersMisp() ServersMispFormat {
 	return smisp
 }
 
-func (smisp *ServersMispFormat) SetValueNameServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueNameServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (smisp *ServersMispFormat) SetValueNameServersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueUrlServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueUrlServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (smisp *ServersMispFormat) SetValueUrlServersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueAuthkeyServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueAuthkeyServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (smisp *ServersMispFormat) SetValueAuthkeyServersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueOrgIdServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueOrgIdServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -52,7 +52,7 @@ func (smisp *ServersMispFormat) SetValueOrgIdServersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueLastpulledidServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueLastpulledidServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -64,7 +64,7 @@ func (smisp *ServersMispFormat) SetValueLastpulledidServersMisp(v interface{}) b
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueLastpushedidServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueLastpushedidServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -76,7 +76,7 @@ func (smisp *ServersMispFormat) SetValueLastpushedidServersMisp(v interface{}) b
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueOrganizationServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueOrganizationServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -88,7 +88,7 @@ func (smisp *ServersMispFormat) SetValueOrganizationServersMisp(v interface{}) b
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueRemoteOrgIdServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueRemoteOrgIdServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -100,7 +100,7 @@ func (smisp *ServersMispFormat) SetValueRemoteOrgIdServersMisp(v interface{}) bo
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePullRulesServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePullRulesServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -112,7 +112,7 @@ func (smisp *ServersMispFormat) SetValuePullRulesServersMisp(v interface{}) bool
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePushRulesServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePushRulesServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -124,7 +124,7 @@ func (smisp *ServersMispFormat) SetValuePushRulesServersMisp(v interface{}) bool
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueCertFileServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueCertFileServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -136,7 +136,7 @@ func (smisp *ServersMispFormat) SetValueCertFileServersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueClientCertFileServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueClientCertFileServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -148,7 +148,7 @@ func (smisp *ServersMispFormat) SetValueClientCertFileServersMisp(v interface{})
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePriorityServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePriorityServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -160,7 +160,7 @@ func (smisp *ServersMispFormat) SetValuePriorityServersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePushServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePushServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -172,7 +172,7 @@ func (smisp *ServersMispFormat) SetValuePushServersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePullServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePullServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -184,7 +184,7 @@ func (smisp *ServersMispFormat) SetValuePullServersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePushSightingsServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePushSightingsServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -196,7 +196,7 @@ func (smisp *ServersMispFormat) SetValuePushSightingsServersMisp(v interface{}) 
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePushGalaxyClustersServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePushGalaxyClustersServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -208,7 +208,7 @@ func (smisp *ServersMispFormat) SetValuePushGalaxyClustersServersMisp(v interfac
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePullGalaxyClustersServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePullGalaxyClustersServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -220,7 +220,7 @@ func (smisp *ServersMispFormat) SetValuePullGalaxyClustersServersMisp(v interfac
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValuePublishWithoutEmailServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValuePublishWithoutEmailServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -232,7 +232,7 @@ func (smisp *ServersMispFormat) SetValuePublishWithoutEmailServersMisp(v interfa
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueUnpublishEventServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueUnpublishEventServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -244,7 +244,7 @@ func (smisp *ServersMispFormat) SetValueUnpublishEventServersMisp(v interface{})
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueSelfSignedServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueSelfSignedServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -256,7 +256,7 @@ func (smisp *ServersMispFormat) SetValueSelfSignedServersMisp(v interface{}) boo
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueInternalServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueInternalServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -268,7 +268,7 @@ func (smisp *ServersMispFormat) SetValueInternalServersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueSkipProxyServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueSkipProxyServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -280,7 +280,7 @@ func (smisp *ServersMispFormat) SetValueSkipProxyServersMisp(v interface{}) bool
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueCachingEnabledServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueCachingEnabledServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -292,7 +292,7 @@ func (smisp *ServersMispFormat) SetValueCachingEnabledServersMisp(v interface{})
 	return isSuccess
 }
 
-func (smisp *ServersMispFormat) SetValueCacheTimestampServersMisp(v interface{}) bool {
+func (smisp *ServersMispFormat) SetValueCacheTimestampServersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {

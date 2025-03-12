@@ -4,7 +4,7 @@ func (gcmisp GalaxyClustersMispFormat) GetGalaxyClustersMisp() GalaxyClustersMis
 	return gcmisp
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueIdGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueIdGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueIdGalaxyClustersMisp(v interface
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueUuidGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueUuidGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueUuidGalaxyClustersMisp(v interfa
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueCollectionUuidGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueCollectionUuidGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueCollectionUuidGalaxyClustersMisp
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueTypeGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueTypeGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -52,7 +52,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueTypeGalaxyClustersMisp(v interfa
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueValueGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueValueGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -64,7 +64,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueValueGalaxyClustersMisp(v interf
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueTagNameGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueTagNameGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -76,7 +76,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueTagNameGalaxyClustersMisp(v inte
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueDescriptionGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueDescriptionGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -88,7 +88,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueDescriptionGalaxyClustersMisp(v 
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueGalaxyIdGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueGalaxyIdGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -100,7 +100,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueGalaxyIdGalaxyClustersMisp(v int
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueSourceGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueSourceGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -112,7 +112,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueSourceGalaxyClustersMisp(v inter
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueAuthorsGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueAuthorsGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	switch v := v.(type) {
@@ -129,7 +129,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueAuthorsGalaxyClustersMisp(v inte
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueVersionGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueVersionGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -141,7 +141,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueVersionGalaxyClustersMisp(v inte
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueDistributionGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueDistributionGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -153,7 +153,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueDistributionGalaxyClustersMisp(v
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueSharingGroupIdGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueSharingGroupIdGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -165,7 +165,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueSharingGroupIdGalaxyClustersMisp
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueOrgIdGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueOrgIdGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -177,7 +177,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueOrgIdGalaxyClustersMisp(v interf
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueOrgcIdGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueOrgcIdGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -189,7 +189,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueOrgcIdGalaxyClustersMisp(v inter
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueExtendsUuidGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueExtendsUuidGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -201,7 +201,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueExtendsUuidGalaxyClustersMisp(v 
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueExtendsVersionGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueExtendsVersionGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -213,7 +213,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueExtendsVersionGalaxyClustersMisp
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueDefaultGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueDefaultGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -225,7 +225,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueDefaultGalaxyClustersMisp(v inte
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueLockedGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueLockedGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -237,7 +237,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueLockedGalaxyClustersMisp(v inter
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValuePublishedGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValuePublishedGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -249,7 +249,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValuePublishedGalaxyClustersMisp(v in
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueDeletedGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueDeletedGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -261,7 +261,7 @@ func (gcmisp *GalaxyClustersMispFormat) SetValueDeletedGalaxyClustersMisp(v inte
 	return isSuccess
 }
 
-func (gcmisp *GalaxyClustersMispFormat) SetValueGalaxyElementGalaxyClustersMisp(v interface{}) bool {
+func (gcmisp *GalaxyClustersMispFormat) SetValueGalaxyElementGalaxyClustersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.([]GalaxyElementMispFormat); ok {

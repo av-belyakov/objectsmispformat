@@ -4,7 +4,7 @@ func (tmisp TagsMispFormat) GetTagsMisp() TagsMispFormat {
 	return tmisp
 }
 
-func (tmisp *TagsMispFormat) SetValueNameTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueNameTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if str, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (tmisp *TagsMispFormat) SetValueNameTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueColourTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueColourTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if str, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (tmisp *TagsMispFormat) SetValueColourTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueOrgIdTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueOrgIdTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if str, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (tmisp *TagsMispFormat) SetValueOrgIdTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueUserIdTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueUserIdTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if str, ok := v.(string); ok {
@@ -52,7 +52,7 @@ func (tmisp *TagsMispFormat) SetValueUserIdTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueNumericalValueTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueNumericalValueTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if str, ok := v.(string); ok {
@@ -64,7 +64,7 @@ func (tmisp *TagsMispFormat) SetValueNumericalValueTagsMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueInheritedTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueInheritedTagsMisp(v any) bool {
 	var isSuccess bool
 
 	switch v := v.(type) {
@@ -93,7 +93,7 @@ func (tmisp *TagsMispFormat) SetValueInheritedTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueHideTagTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueHideTagTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -105,7 +105,7 @@ func (tmisp *TagsMispFormat) SetValueHideTagTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueIsGalaxyTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueIsGalaxyTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -117,7 +117,7 @@ func (tmisp *TagsMispFormat) SetValueIsGalaxyTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueExportableTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueExportableTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -129,7 +129,7 @@ func (tmisp *TagsMispFormat) SetValueExportableTagsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (tmisp *TagsMispFormat) SetValueIsCustomGalaxyTagsMisp(v interface{}) bool {
+func (tmisp *TagsMispFormat) SetValueIsCustomGalaxyTagsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {

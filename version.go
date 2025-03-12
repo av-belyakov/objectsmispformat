@@ -1,5 +1,5 @@
 package objectsmispformat
 
 func GetVersion() string {
-	return "0.1.4"
+	return "0.2.1"
 }

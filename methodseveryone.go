@@ -21,7 +21,7 @@ func NewListAttributeTmp() *ListAttributeTmp {
 }
 
 // AddAttribute добавляет атрибуты в список атрибутов
-func (la *ListAttributeTmp) AddAttribute(branch string, value interface{}, num int) {
+func (la *ListAttributeTmp) AddAttribute(branch string, value any, num int) {
 	var (
 		t    string = "other"
 		objr string = "other"

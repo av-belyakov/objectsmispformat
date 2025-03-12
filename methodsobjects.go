@@ -11,8 +11,8 @@ func NewListObjectsMispFormat() *ListObjectsMispFormat {
 	return &ListObjectsMispFormat{objects: map[int]ObjectsMispFormat{}}
 }
 
-func createNewObjectsMisp() ObjectsMispFormat {
-	return ObjectsMispFormat{
+func NewObjectsMisp() *ObjectsMispFormat {
+	return &ObjectsMispFormat{
 		TemplateUUID:    uuid.NewString(),
 		TemplateVersion: "1",
 		FirstSeen:       fmt.Sprint(time.Now().UnixMicro()),
@@ -30,8 +30,8 @@ func (lomf *ListObjectsMispFormat) GetCountList() int {
 
 // CleanList очистить список
 func (lomf *ListObjectsMispFormat) CleanList() {
-	lomf.Lock()
-	defer lomf.Unlock()
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	lomf.objects = map[int]ObjectsMispFormat{}
 }
@@ -71,7 +71,7 @@ func (o *ObjectsMispFormat) Comparison(newObjects *ObjectsMispFormat) bool {
 		return false
 	}
 
-	if len(o.Attribute) != len(newObjects.MetaCategory) {
+	if len(o.Attribute) != len(newObjects.Attribute) {
 		return false
 	}
 
@@ -96,10 +96,62 @@ func (o *ObjectsMispFormat) Comparison(newObjects *ObjectsMispFormat) bool {
 	return true
 }
 
+// MatchingAndReplacement выполняет сопоставление элементов объекта и их замену
+func (o *ObjectsMispFormat) MatchingAndReplacement(newObjects ObjectsMispFormat) ObjectsMispFormat {
+	//FirstSeen       string        `json:"first_seen"`
+	//Timestamp       string        `json:"timestamp"`
+	//для этих объектов пока не стоит выполнять замену
+
+	if o.Name != "" && o.Name != newObjects.Name {
+		newObjects.Name = o.Name
+	}
+
+	if o.TemplateUUID != "" && o.TemplateUUID != newObjects.TemplateUUID {
+		newObjects.TemplateUUID = o.TemplateUUID
+	}
+
+	if o.Description != "" && o.Description != newObjects.Description {
+		newObjects.Description = o.Description
+	}
+
+	if o.Distribution != "" && o.Distribution != newObjects.Distribution {
+		newObjects.Distribution = o.Distribution
+	}
+
+	if o.EventId != "" && o.EventId != newObjects.EventId {
+		newObjects.EventId = o.EventId
+	}
+
+	if o.TemplateVersion != "" && o.TemplateVersion != newObjects.TemplateVersion {
+		newObjects.TemplateVersion = o.TemplateVersion
+	}
+
+	if o.MetaCategory != "" && o.MetaCategory != newObjects.MetaCategory {
+		newObjects.MetaCategory = o.MetaCategory
+	}
+
+	for _, currentAttribute := range o.Attribute {
+		var isEqual bool
+		for _, newAttribute := range newObjects.Attribute {
+			if newAttribute.Value == currentAttribute.Value {
+				isEqual = true
+
+				break
+			}
+		}
+
+		if !isEqual {
+			newObjects.Attribute = append(newObjects.Attribute, currentAttribute)
+		}
+	}
+
+	return newObjects
+}
+
 // SetValueId устанавливает значение ID
-func (lomf *ListObjectsMispFormat) SetValueId(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueId(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	tmp.ID = fmt.Sprint(v)
@@ -107,9 +159,9 @@ func (lomf *ListObjectsMispFormat) SetValueId(v interface{}, num int) {
 }
 
 // SetValueEventId устанавливает значение EventId
-func (lomf *ListObjectsMispFormat) SetValueEventId(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueEventId(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	tmp.EventId = fmt.Sprint(v)
@@ -117,9 +169,9 @@ func (lomf *ListObjectsMispFormat) SetValueEventId(v interface{}, num int) {
 }
 
 // SetValueName устанавливает значение Name
-func (lomf *ListObjectsMispFormat) SetValueName(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueName(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	tmp.Name = fmt.Sprint(v)
@@ -127,9 +179,9 @@ func (lomf *ListObjectsMispFormat) SetValueName(v interface{}, num int) {
 }
 
 // SetValueDescription устанавливает значение Description
-func (lomf *ListObjectsMispFormat) SetValueDescription(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueDescription(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	tmp.Description = fmt.Sprint(v)
@@ -137,9 +189,9 @@ func (lomf *ListObjectsMispFormat) SetValueDescription(v interface{}, num int) {
 }
 
 // SetValueFirstSeen устанавливает значение FirstSeen
-func (lomf *ListObjectsMispFormat) SetValueFirstSeen(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueFirstSeen(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	if dt, ok := v.(float64); ok {
@@ -150,9 +202,9 @@ func (lomf *ListObjectsMispFormat) SetValueFirstSeen(v interface{}, num int) {
 }
 
 // SetValueTimestamp устанавливает значение Timestamp
-func (lomf *ListObjectsMispFormat) SetValueTimestamp(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueTimestamp(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	if dt, ok := v.(float64); ok {
@@ -163,9 +215,9 @@ func (lomf *ListObjectsMispFormat) SetValueTimestamp(v interface{}, num int) {
 }
 
 // SetValueSize устанавливает значение Size
-func (lomf *ListObjectsMispFormat) SetValueSize(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueSize(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	tmp.Description = fmt.Sprintf("размер %v байт", v)
@@ -173,9 +225,9 @@ func (lomf *ListObjectsMispFormat) SetValueSize(v interface{}, num int) {
 }
 
 // SetValueAttribute устанавливает значение Attribute
-func (lomf *ListObjectsMispFormat) SetValueAttribute(v interface{}, num int) {
-	lomf.Lock()
-	defer lomf.Unlock()
+func (lomf *ListObjectsMispFormat) SetValueAttribute(v any, num int) {
+	lomf.mutex.Lock()
+	defer lomf.mutex.Unlock()
 
 	tmp := lomf.getObjectMisp(num)
 	if newSlice, ok := v.([]AttributeMispFormat); ok {
@@ -190,7 +242,7 @@ func (lomf *ListObjectsMispFormat) getObjectMisp(num int) ObjectsMispFormat {
 	if obj, ok := lomf.objects[num]; ok {
 		tmp = obj
 	} else {
-		tmp = createNewObjectsMisp()
+		tmp = *NewObjectsMisp()
 	}
 
 	return tmp

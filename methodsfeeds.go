@@ -4,7 +4,7 @@ func (fmisp FeedsMispFormat) GetFeedsMisp() FeedsMispFormat {
 	return fmisp
 }
 
-func (fmisp *FeedsMispFormat) SetValueNameFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueNameFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (fmisp *FeedsMispFormat) SetValueNameFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueProviderFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueProviderFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (fmisp *FeedsMispFormat) SetValueProviderFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueUrlFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueUrlFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (fmisp *FeedsMispFormat) SetValueUrlFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueRulesFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueRulesFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -52,7 +52,7 @@ func (fmisp *FeedsMispFormat) SetValueRulesFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueDistributionFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueDistributionFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -64,7 +64,7 @@ func (fmisp *FeedsMispFormat) SetValueDistributionFeedsMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueSharingGroupIdFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueSharingGroupIdFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -76,7 +76,7 @@ func (fmisp *FeedsMispFormat) SetValueSharingGroupIdFeedsMisp(v interface{}) boo
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueTagIdFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueTagIdFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -88,7 +88,7 @@ func (fmisp *FeedsMispFormat) SetValueTagIdFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueSourceFormatFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueSourceFormatFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -100,7 +100,7 @@ func (fmisp *FeedsMispFormat) SetValueSourceFormatFeedsMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueEventIdFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueEventIdFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -112,7 +112,7 @@ func (fmisp *FeedsMispFormat) SetValueEventIdFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueInputSourceFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueInputSourceFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -124,7 +124,7 @@ func (fmisp *FeedsMispFormat) SetValueInputSourceFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueHeadersFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueHeadersFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -136,7 +136,7 @@ func (fmisp *FeedsMispFormat) SetValueHeadersFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueOrgcIdFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueOrgcIdFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -148,7 +148,7 @@ func (fmisp *FeedsMispFormat) SetValueOrgcIdFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueEnabledFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueEnabledFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -160,7 +160,7 @@ func (fmisp *FeedsMispFormat) SetValueEnabledFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueFixedEventFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueFixedEventFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -172,7 +172,7 @@ func (fmisp *FeedsMispFormat) SetValueFixedEventFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueDeltaMergeFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueDeltaMergeFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -184,7 +184,7 @@ func (fmisp *FeedsMispFormat) SetValueDeltaMergeFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValuePublishFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValuePublishFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -196,7 +196,7 @@ func (fmisp *FeedsMispFormat) SetValuePublishFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueOverrideIdsFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueOverrideIdsFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -208,7 +208,7 @@ func (fmisp *FeedsMispFormat) SetValueOverrideIdsFeedsMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueDeleteLocalFileFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueDeleteLocalFileFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -220,7 +220,7 @@ func (fmisp *FeedsMispFormat) SetValueDeleteLocalFileFeedsMisp(v interface{}) bo
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueLookupVisibleFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueLookupVisibleFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -232,7 +232,7 @@ func (fmisp *FeedsMispFormat) SetValueLookupVisibleFeedsMisp(v interface{}) bool
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueCachingEnabledFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueCachingEnabledFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -244,7 +244,7 @@ func (fmisp *FeedsMispFormat) SetValueCachingEnabledFeedsMisp(v interface{}) boo
 	return isSuccess
 }
 
-func (fmisp *FeedsMispFormat) SetValueForceToIdsFeedsMisp(v interface{}) bool {
+func (fmisp *FeedsMispFormat) SetValueForceToIdsFeedsMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {

@@ -20,99 +20,99 @@ func NewEventMisp() *EventsMispFormat {
 	}
 }
 
-func (emisp EventsMispFormat) GetEventsMisp() EventsMispFormat {
-	return emisp
+func (e EventsMispFormat) GetEventsMisp() EventsMispFormat {
+	return e
 }
 
-func (emisp *EventsMispFormat) CleanEventsMispFormat() {
-	emisp.OrgId = ""
-	emisp.OrgcId = ""
-	emisp.Info = ""
-	emisp.Uuid = uuid.New().String()
-	emisp.Date = ""
-	emisp.AttributeCount = ""
-	emisp.ExtendsUuid = ""
-	emisp.EventCreatorEmail = ""
-	emisp.Published = getPublished()
-	emisp.ProposalEmailLock = false
-	emisp.Locked = false
-	emisp.DisableCorrelation = false
-	emisp.Analysis = getAnalysis()
-	emisp.Distribution = getDistributionEvent()
-	emisp.Timestamp = "0"
-	emisp.ThreatLevelId = getThreatLevelId()
-	emisp.PublishTimestamp = "0"
-	emisp.SightingTimestamp = "0"
-	emisp.SharingGroupId = getSharingGroupId()
+func (e *EventsMispFormat) CleanEventsMispFormat() {
+	e.OrgId = ""
+	e.OrgcId = ""
+	e.Info = ""
+	e.Uuid = uuid.New().String()
+	e.Date = ""
+	e.AttributeCount = ""
+	e.ExtendsUuid = ""
+	e.EventCreatorEmail = ""
+	e.Published = getPublished()
+	e.ProposalEmailLock = false
+	e.Locked = false
+	e.DisableCorrelation = false
+	e.Analysis = getAnalysis()
+	e.Distribution = getDistributionEvent()
+	e.Timestamp = "0"
+	e.ThreatLevelId = getThreatLevelId()
+	e.PublishTimestamp = "0"
+	e.SightingTimestamp = "0"
+	e.SharingGroupId = getSharingGroupId()
 }
 
 // Comparison выполняет сравнение двух объектов типа EventsMispFormat
-func (emisp *EventsMispFormat) Comparison(newEvents *EventsMispFormat) bool {
-	if emisp.Analysis != newEvents.Analysis {
+func (e *EventsMispFormat) Comparison(newEvents *EventsMispFormat) bool {
+	if e.Analysis != newEvents.Analysis {
 		return false
 	}
 
-	if emisp.Analysis != newEvents.Analysis {
+	if e.Analysis != newEvents.Analysis {
 		return false
 	}
 
-	if emisp.AttributeCount != newEvents.AttributeCount {
+	if e.AttributeCount != newEvents.AttributeCount {
 		return false
 	}
 
-	if emisp.OrgId != newEvents.OrgId {
+	if e.OrgId != newEvents.OrgId {
 		return false
 	}
 
-	if emisp.OrgcId != newEvents.OrgcId {
+	if e.OrgcId != newEvents.OrgcId {
 		return false
 	}
 
-	if emisp.Distribution != newEvents.Distribution {
+	if e.Distribution != newEvents.Distribution {
 		return false
 	}
 
-	if emisp.Info != newEvents.Info {
+	if e.Info != newEvents.Info {
 		return false
 	}
 
-	if emisp.Uuid != newEvents.Uuid {
+	if e.Uuid != newEvents.Uuid {
 		return false
 	}
 
-	if emisp.Date != newEvents.Date {
+	if e.Date != newEvents.Date {
 		return false
 	}
 
-	if emisp.SharingGroupId != newEvents.SharingGroupId {
+	if e.SharingGroupId != newEvents.SharingGroupId {
 		return false
 	}
 
-	if emisp.ThreatLevelId != newEvents.ThreatLevelId {
+	if e.ThreatLevelId != newEvents.ThreatLevelId {
 		return false
 	}
 
-	if emisp.ExtendsUuid != newEvents.ExtendsUuid {
+	if e.ExtendsUuid != newEvents.ExtendsUuid {
 		return false
 	}
 
-	if emisp.EventCreatorEmail != newEvents.EventCreatorEmail {
+	if e.EventCreatorEmail != newEvents.EventCreatorEmail {
 		return false
 	}
 
-	if emisp.Published != newEvents.Published {
+	if e.Published != newEvents.Published {
 		return false
 	}
 
-	if emisp.ProposalEmailLock != newEvents.ProposalEmailLock {
+	if e.ProposalEmailLock != newEvents.ProposalEmailLock {
 		return false
 	}
 
-	if emisp.Locked != newEvents.Locked {
+	if e.Locked != newEvents.Locked {
 		return false
 	}
 
-	if emisp.DisableCorrelation != newEvents.DisableCorrelation {
+	if e.DisableCorrelation != newEvents.DisableCorrelation {
 		return false
 	}
 
@@ -125,329 +125,403 @@ func (emisp *EventsMispFormat) Comparison(newEvents *EventsMispFormat) bool {
 	return true
 }
 
+// MatchingAndReplacement выполняет сопоставление элементов объекта и их замену
+func (e *EventsMispFormat) MatchingAndReplacement(newEvents EventsMispFormat) EventsMispFormat {
+	if e.Analysis != "" && e.Analysis != newEvents.Analysis {
+		newEvents.Analysis = e.Analysis
+	}
+
+	if e.AttributeCount != "" && e.AttributeCount != newEvents.AttributeCount {
+		newEvents.AttributeCount = e.AttributeCount
+	}
+
+	if e.OrgId != "" && e.OrgId != newEvents.OrgId {
+		newEvents.OrgId = e.OrgId
+	}
+
+	if e.OrgcId != "" && e.OrgcId != newEvents.OrgcId {
+		newEvents.OrgcId = e.OrgcId
+	}
+
+	if e.Distribution != "" && e.Distribution != newEvents.Distribution {
+		newEvents.Distribution = e.Distribution
+	}
+
+	if e.Info != "" && e.Info != newEvents.Info {
+		newEvents.Info = e.Info
+	}
+
+	if e.Uuid != "" && e.Uuid != newEvents.Uuid {
+		newEvents.Uuid = e.Uuid
+	}
+
+	if e.Date != "" && e.Date != newEvents.Date {
+		newEvents.Date = e.Date
+	}
+
+	if e.SharingGroupId != "" && e.SharingGroupId != newEvents.SharingGroupId {
+		newEvents.SharingGroupId = e.SharingGroupId
+	}
+
+	if e.ThreatLevelId != "" && e.ThreatLevelId != newEvents.ThreatLevelId {
+		newEvents.ThreatLevelId = e.ThreatLevelId
+	}
+
+	if e.ExtendsUuid != "" && e.ExtendsUuid != newEvents.ExtendsUuid {
+		newEvents.ExtendsUuid = e.ExtendsUuid
+	}
+
+	if e.EventCreatorEmail != "" && e.EventCreatorEmail != newEvents.EventCreatorEmail {
+		newEvents.EventCreatorEmail = e.EventCreatorEmail
+	}
+
+	if e.Published && e.Published != newEvents.Published {
+		newEvents.Published = e.Published
+	}
+
+	if e.ProposalEmailLock && e.ProposalEmailLock != newEvents.ProposalEmailLock {
+		newEvents.ProposalEmailLock = e.ProposalEmailLock
+	}
+
+	if e.Locked && e.Locked != newEvents.Locked {
+		newEvents.Locked = e.Locked
+	}
+
+	if e.DisableCorrelation && e.DisableCorrelation != newEvents.DisableCorrelation {
+		newEvents.DisableCorrelation = e.DisableCorrelation
+	}
+
+	return newEvents
+}
+
 // GetOrgId возвращает значение OrgId
-func (emisp *EventsMispFormat) GetOrgId() string {
-	return emisp.OrgId
+func (e *EventsMispFormat) GetOrgId() string {
+	return e.OrgId
 }
 
 // SetAnyOrgId устанавливает значение для OrgId
-func (emisp *EventsMispFormat) SetAnyOrgId(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyOrgId(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.OrgId = data
+		e.OrgId = data
 	}
 }
 
+// SetOrgId возвращает значение OrgId
+func (e *EventsMispFormat) SetOrgId(v string) {
+	e.OrgId = v
+}
+
 // GetOrgcId возвращает значение OrgcId
-func (emisp *EventsMispFormat) GetOrgcId() string {
-	return emisp.OrgcId
+func (e *EventsMispFormat) GetOrgcId() string {
+	return e.OrgcId
 }
 
 // SetAnyOrgcId устанавливает значение для OrgcId
-func (emisp *EventsMispFormat) SetAnyOrgcId(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyOrgcId(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.OrgcId = data
+		e.OrgcId = data
 	}
 }
 
 // SetOrgcId устанавливает значение для OrgcId
-func (emisp *EventsMispFormat) SetOrgcId(v string) {
-	emisp.OrgcId = v
+func (e *EventsMispFormat) SetOrgcId(v string) {
+	e.OrgcId = v
 }
 
 // GetDistribution возвращает значение Distribution
-func (emisp *EventsMispFormat) GetDistribution() string {
-	return emisp.Distribution
+func (e *EventsMispFormat) GetDistribution() string {
+	return e.Distribution
 }
 
 // SetAnyDistribution устанавливает значение для Distribution
-func (emisp *EventsMispFormat) SetAnyDistribution(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyDistribution(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.Distribution = data
+		e.Distribution = data
 	}
 }
 
 // SetDistribution устанавливает значение для Distribution
-func (emisp *EventsMispFormat) SetDistribution(v string) {
-	emisp.Distribution = v
+func (e *EventsMispFormat) SetDistribution(v string) {
+	e.Distribution = v
 }
 
 // GetInfo возвращает значение Info
-func (emisp *EventsMispFormat) GetInfo() string {
-	return emisp.Info
+func (e *EventsMispFormat) GetInfo() string {
+	return e.Info
 }
 
 // SetAnyInfo устанавливает значение для Info
-func (emisp *EventsMispFormat) SetAnyInfo(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyInfo(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.Info = data
+		e.Info = data
 	}
 }
 
 // SetInfo устанавливает значение для Info
-func (emisp *EventsMispFormat) SetInfo(v string) {
-	emisp.Info = v
+func (e *EventsMispFormat) SetInfo(v string) {
+	e.Info = v
 }
 
 // GetUUID возвращает значение UUID
-func (emisp *EventsMispFormat) GetUUID() string {
-	return emisp.Uuid
+func (e *EventsMispFormat) GetUUID() string {
+	return e.Uuid
 }
 
 // SetAnyUUID устанавливает значение для UUID
-func (emisp *EventsMispFormat) SetAnyUUID(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyUUID(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.Uuid = data
+		e.Uuid = data
 	}
 }
 
 // SetUUID устанавливает значение для UUID
-func (emisp *EventsMispFormat) SetUUID(v string) {
-	emisp.Uuid = v
+func (e *EventsMispFormat) SetUUID(v string) {
+	e.Uuid = v
 }
 
 // GetDate возвращает значение Date
-func (emisp *EventsMispFormat) GetDate() string {
-	return emisp.Date
+func (e *EventsMispFormat) GetDate() string {
+	return e.Date
 }
 
 // SetAnyDate устанавливает значение для Date
-func (emisp *EventsMispFormat) SetAnyDate(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyDate(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.Date = data
+		e.Date = data
 	}
 }
 
 // SetDate устанавливает значение для Date
-func (emisp *EventsMispFormat) SetDate(v string) {
-	emisp.Date = v
+func (e *EventsMispFormat) SetDate(v string) {
+	e.Date = v
 }
 
 // GetAnalysis возвращает значение Analysis
-func (emisp *EventsMispFormat) GetAnalysis() string {
-	return emisp.Analysis
+func (e *EventsMispFormat) GetAnalysis() string {
+	return e.Analysis
 }
 
 // SetAnyAnalysis устанавливает значение для Analysis
-func (emisp *EventsMispFormat) SetAnyAnalysis(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyAnalysis(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.Analysis = data
+		e.Analysis = data
 	}
 }
 
 // SetAnalysis устанавливает значение для Analysis
-func (emisp *EventsMispFormat) SetAnalysis(v string) {
-	emisp.Analysis = v
+func (e *EventsMispFormat) SetAnalysis(v string) {
+	e.Analysis = v
 }
 
 // GetAttributeCount возвращает значение AttributeCount
-func (emisp *EventsMispFormat) GetAttributeCount() string {
-	return emisp.AttributeCount
+func (e *EventsMispFormat) GetAttributeCount() string {
+	return e.AttributeCount
 }
 
 // SetAnyAttributeCount устанавливает значение для AttributeCount
-func (emisp *EventsMispFormat) SetAnyAttributeCount(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyAttributeCount(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.AttributeCount = data
+		e.AttributeCount = data
 	}
 }
 
 // SetAttributeCount устанавливает значение для AttributeCount
-func (emisp *EventsMispFormat) SetAttributeCount(v string) {
-	emisp.AttributeCount = v
+func (e *EventsMispFormat) SetAttributeCount(v string) {
+	e.AttributeCount = v
 }
 
 // GetTimestamp возвращает значение Timestamp
-func (emisp *EventsMispFormat) GetTimestamp() string {
-	return emisp.Timestamp
+func (e *EventsMispFormat) GetTimestamp() string {
+	return e.Timestamp
 }
 
 // SetAnyTimestamp устанавливает значение для Timestamp
-func (emisp *EventsMispFormat) SetAnyTimestamp(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyTimestamp(v any, num int) {
 	if data, ok := v.(float64); ok {
-		//emisp.Timestamp = fmt.Sprintf("%13.f", data)
-		emisp.Timestamp = fmt.Sprintf("%13.f", data)[:10]
+		//e.Timestamp = fmt.Sprintf("%13.f", data)
+		e.Timestamp = fmt.Sprintf("%13.f", data)[:10]
 	}
 }
 
 // SetTimestamp устанавливает значение для Timestamp
-func (emisp *EventsMispFormat) SetTimestamp(v string) {
-	emisp.Timestamp = v
+func (e *EventsMispFormat) SetTimestamp(v string) {
+	e.Timestamp = v
 }
 
 // GetSharingGroupId возвращает значение SharingGroupId
-func (emisp *EventsMispFormat) GetSharingGroupId() string {
-	return emisp.SharingGroupId
+func (e *EventsMispFormat) GetSharingGroupId() string {
+	return e.SharingGroupId
 }
 
 // SetAnySharingGroupId устанавливает значение для SharingGroupId
-func (emisp *EventsMispFormat) SetAnySharingGroupId(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnySharingGroupId(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.SharingGroupId = data
+		e.SharingGroupId = data
 	}
 }
 
 // SetSharingGroupId устанавливает значение для SharingGroupId
-func (emisp *EventsMispFormat) SetSharingGroupId(v string) {
-	emisp.SharingGroupId = v
+func (e *EventsMispFormat) SetSharingGroupId(v string) {
+	e.SharingGroupId = v
 }
 
 // GetThreatLevelId возвращает значение ThreatLevelId
-func (emisp *EventsMispFormat) GetThreatLevelId() string {
-	return emisp.ThreatLevelId
+func (e *EventsMispFormat) GetThreatLevelId() string {
+	return e.ThreatLevelId
 }
 
 // SetAnyThreatLevelId устанавливает значение для ThreatLevelId
-func (emisp *EventsMispFormat) SetAnyThreatLevelId(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyThreatLevelId(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.ThreatLevelId = data
+		e.ThreatLevelId = data
 	}
 
 	if data, ok := v.(float64); ok {
-		emisp.ThreatLevelId = fmt.Sprint(data)
+		e.ThreatLevelId = fmt.Sprint(data)
 	}
 }
 
 // SetThreatLevelId устанавливает значение для ThreatLevelId
-func (emisp *EventsMispFormat) SetThreatLevelId(v string) {
-	emisp.ThreatLevelId = v
+func (e *EventsMispFormat) SetThreatLevelId(v string) {
+	e.ThreatLevelId = v
 }
 
 // GetPublishTimestamp возвращает значение PublishTimestamp
-func (emisp *EventsMispFormat) GetPublishTimestamp() string {
-	return emisp.PublishTimestamp
+func (e *EventsMispFormat) GetPublishTimestamp() string {
+	return e.PublishTimestamp
 }
 
 // SetAnyPublishTimestamp устанавливает значение для PublishTimestamp
-func (emisp *EventsMispFormat) SetAnyPublishTimestamp(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyPublishTimestamp(v any, num int) {
 	if data, ok := v.(float64); ok {
-		//emisp.PublishTimestamp = fmt.Sprintf("%13.f", data)
-		emisp.PublishTimestamp = fmt.Sprintf("%13.f", data)[:10]
+		//e.PublishTimestamp = fmt.Sprintf("%13.f", data)
+		e.PublishTimestamp = fmt.Sprintf("%13.f", data)[:10]
 	}
 }
 
 // SetPublishTimestamp устанавливает значение для PublishTimestamp
-func (emisp *EventsMispFormat) SetPublishTimestamp(v string) {
-	emisp.PublishTimestamp = v
+func (e *EventsMispFormat) SetPublishTimestamp(v string) {
+	e.PublishTimestamp = v
 }
 
 // GetSightingTimestamp возвращает значение SightingTimestamp
-func (emisp *EventsMispFormat) GetSightingTimestamp() string {
-	return emisp.SightingTimestamp
+func (e *EventsMispFormat) GetSightingTimestamp() string {
+	return e.SightingTimestamp
 }
 
 // SetAnySightingTimestamp устанавливает значение для SightingTimestamp
-func (emisp *EventsMispFormat) SetAnySightingTimestamp(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnySightingTimestamp(v any, num int) {
 	if data, ok := v.(float64); ok {
-		//emisp.SightingTimestamp = fmt.Sprintf("%13.f", data)
-		emisp.SightingTimestamp = fmt.Sprintf("%13.f", data)[:10]
+		//e.SightingTimestamp = fmt.Sprintf("%13.f", data)
+		e.SightingTimestamp = fmt.Sprintf("%13.f", data)[:10]
 	}
 }
 
 // SetSightingTimestamp устанавливает значение для SightingTimestamp
-func (emisp *EventsMispFormat) SetSightingTimestamp(v string) {
-	emisp.SightingTimestamp = v
+func (e *EventsMispFormat) SetSightingTimestamp(v string) {
+	e.SightingTimestamp = v
 }
 
 // GetExtendsUuid возвращает значение ExtendsUuid
-func (emisp *EventsMispFormat) GetExtendsUuid() string {
-	return emisp.ExtendsUuid
+func (e *EventsMispFormat) GetExtendsUuid() string {
+	return e.ExtendsUuid
 }
 
 // SetAnyExtendsUUID устанавливает значение для ExtendsUUID
-func (emisp *EventsMispFormat) SetAnyExtendsUUID(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyExtendsUUID(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.ExtendsUuid = data
+		e.ExtendsUuid = data
 	}
 }
 
 // SetExtendsUUID устанавливает значение для ExtendsUUID
-func (emisp *EventsMispFormat) SetExtendsUUID(v string) {
-	emisp.ExtendsUuid = v
+func (e *EventsMispFormat) SetExtendsUUID(v string) {
+	e.ExtendsUuid = v
 }
 
 // GetEventCreatorEmail возвращает значение EventCreatorEmail
-func (emisp *EventsMispFormat) GetEventCreatorEmail() string {
-	return emisp.EventCreatorEmail
+func (e *EventsMispFormat) GetEventCreatorEmail() string {
+	return e.EventCreatorEmail
 }
 
 // SetAnyEventCreatorEmail устанавливает значение для EventCreatorEmail
-func (emisp *EventsMispFormat) SetAnyEventCreatorEmail(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyEventCreatorEmail(v any, num int) {
 	if data, ok := v.(string); ok {
-		emisp.EventCreatorEmail = data
+		e.EventCreatorEmail = data
 	}
 }
 
 // SetEventCreatorEmail устанавливает значение для EventCreatorEmail
-func (emisp *EventsMispFormat) SetEventCreatorEmail(v string) {
-	emisp.EventCreatorEmail = v
+func (e *EventsMispFormat) SetEventCreatorEmail(v string) {
+	e.EventCreatorEmail = v
 }
 
 // GetPublished возвращает значение Published
-func (emisp *EventsMispFormat) GetPublished() bool {
-	return emisp.Published
+func (e *EventsMispFormat) GetPublished() bool {
+	return e.Published
 }
 
 // SetAnyPublished устанавливает значение для Published
-func (emisp *EventsMispFormat) SetAnyPublished(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyPublished(v any, num int) {
 	if data, ok := v.(bool); ok {
-		emisp.Published = data
+		e.Published = data
 	}
 }
 
 // SetPublished устанавливает значение для Published
-func (emisp *EventsMispFormat) SetPublished(v bool) {
-	emisp.Published = v
+func (e *EventsMispFormat) SetPublished(v bool) {
+	e.Published = v
 }
 
 // GetProposalEmailLock возвращает значение ProposalEmailLock
-func (emisp *EventsMispFormat) GetProposalEmailLock() bool {
-	return emisp.ProposalEmailLock
+func (e *EventsMispFormat) GetProposalEmailLock() bool {
+	return e.ProposalEmailLock
 }
 
 // SetAnyProposalEmailLock устанавливает значение для ProposalEmailLock
-func (emisp *EventsMispFormat) SetAnyProposalEmailLock(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyProposalEmailLock(v any, num int) {
 	if data, ok := v.(bool); ok {
-		emisp.ProposalEmailLock = data
+		e.ProposalEmailLock = data
 	}
 }
 
 // SetProposalEmailLock устанавливает значение для ProposalEmailLock
-func (emisp *EventsMispFormat) SetProposalEmailLock(v bool) {
-	emisp.ProposalEmailLock = v
+func (e *EventsMispFormat) SetProposalEmailLock(v bool) {
+	e.ProposalEmailLock = v
 }
 
 // GetLocked возвращает значение Locked
-func (emisp *EventsMispFormat) GetLocked() bool {
-	return emisp.Locked
+func (e *EventsMispFormat) GetLocked() bool {
+	return e.Locked
 }
 
 // SetAnyLocked устанавливает значение для Locked
-func (emisp *EventsMispFormat) SetAnyLocked(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyLocked(v any, num int) {
 	if data, ok := v.(bool); ok {
-		emisp.Locked = data
+		e.Locked = data
 	}
 }
 
 // SetLocked устанавливает значение для Locked
-func (emisp *EventsMispFormat) SetLocked(v bool) {
-	emisp.Locked = v
+func (e *EventsMispFormat) SetLocked(v bool) {
+	e.Locked = v
 }
 
 // GetDisableCorrelation возвращает значение DisableCorrelation
-func (emisp *EventsMispFormat) GetDisableCorrelation() bool {
-	return emisp.DisableCorrelation
+func (e *EventsMispFormat) GetDisableCorrelation() bool {
+	return e.DisableCorrelation
 }
 
 // SetAnyDisableCorrelation устанавливает значение для DisableCorrelation
-func (emisp *EventsMispFormat) SetAnyDisableCorrelation(v interface{}, num int) {
+func (e *EventsMispFormat) SetAnyDisableCorrelation(v any, num int) {
 	if data, ok := v.(bool); ok {
-		emisp.DisableCorrelation = data
+		e.DisableCorrelation = data
 	}
 }
 
 // SetDisableCorrelation устанавливает значение для DisableCorrelation
-func (emisp *EventsMispFormat) SetDisableCorrelation(v bool) {
-	emisp.DisableCorrelation = v
+func (e *EventsMispFormat) SetDisableCorrelation(v bool) {
+	e.DisableCorrelation = v
 }
 
 func getAnalysis() string {

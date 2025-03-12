@@ -18,7 +18,7 @@ type ListFormatsMISP struct {
 	ObjectTags *ListEventObjectTags
 }
 
-// описание формата MISP типа Events для загрузки в API MISP
+// EventsMispFormat формат MISP типа Events для взаимодействия с API MISP
 type EventsMispFormat struct {
 	OrgId              string `json:"org_id"`
 	OrgcId             string `json:"orgc_id"`
@@ -41,6 +41,7 @@ type EventsMispFormat struct {
 	DisableCorrelation bool   `json:"disable_correlation"`
 }
 
+// EventReports формат MISP типа Reports для взаимодействия с API MISP
 type EventReports struct {
 	Name         string `json:"name"`
 	Content      string `json:"content"`
@@ -48,11 +49,11 @@ type EventReports struct {
 }
 
 type ListAttributesMispFormat struct {
+	mutex      sync.Mutex
 	attributes map[int]AttributesMispFormat
-	sync.Mutex
 }
 
-// описание формата MISP типа Attributes для загрузки в API MISP
+// AttributesMispFormat формат MISP типа Attributes для взаимодействия с API MISP
 type AttributesMispFormat struct {
 	EventId            string `json:"event_id"`
 	ObjectId           string `json:"object_id"`
@@ -72,7 +73,7 @@ type AttributesMispFormat struct {
 	DisableCorrelation bool   `json:"disable_correlation"`
 }
 
-// описание формата MISP типа GalaxyClusters для загрузки в API MISP
+// GalaxyClustersMispFormat формат MISP типа GalaxyClusters для взаимодействия с API MISP
 type GalaxyClustersMispFormat struct {
 	Authors        []string                  `json:"authors"`
 	GalaxyElement  []GalaxyElementMispFormat `json:"GalaxyElement"`
@@ -98,7 +99,7 @@ type GalaxyClustersMispFormat struct {
 	Deleted        bool                      `json:"deleted"`
 }
 
-// описание формата MISP типа Galaxy для загрузки в API MISP
+// GalaxyElementMispFormat формат MISP типа Galaxy для взаимодействия с API MISP
 type GalaxyElementMispFormat struct {
 	Id              string `json:"id"`
 	GalaxyClusterId string `json:"galaxy_cluster_id"`
@@ -106,7 +107,7 @@ type GalaxyElementMispFormat struct {
 	Value           string `json:"value"`
 }
 
-// описание формата MISP типа Users для загрузки в API MISP
+// UsersMispFormat формат MISP типа Users для взаимодействия с API MISP
 type UsersMispFormat struct {
 	OrgId         string `json:"org_id"`
 	ServerId      string `json:"server_id"`
@@ -131,7 +132,7 @@ type UsersMispFormat struct {
 	ForceLogout   bool   `json:"force_logout"`
 }
 
-// описание формата MISP типа Organisations для загрузки в API MISP
+// OrganisationsMispFormat формата MISP типа Organisations для взаимодействия с API MISP
 type OrganisationsMispFormat struct {
 	RestrictedToDomain []string `json:"restricted_to_domain"`
 	Name               string   `json:"name"`
@@ -150,7 +151,7 @@ type OrganisationsMispFormat struct {
 	Local              bool     `json:"local"`
 }
 
-// описание формата MISP типа Servers для загрузки в API MISP
+// ServersMispFormat формат MISP типа Servers для взаимодействия с API MISP
 type ServersMispFormat struct {
 	Name                string `json:"name"`
 	Url                 string `json:"url"`
@@ -179,7 +180,7 @@ type ServersMispFormat struct {
 	CacheTimestamp      bool   `json:"cache_timestamp"`
 }
 
-// описание формата MISP типа Feeds для загрузки в API MISP
+// FeedsMispFormat формат MISP типа Feeds для взаимодействия с API MISP
 type FeedsMispFormat struct {
 	Name            string `json:"name"`
 	Provider        string `json:"provider"`
@@ -204,7 +205,7 @@ type FeedsMispFormat struct {
 	ForceToIds      bool   `json:"force_to_ids"`
 }
 
-// описание формата MISP типа Tags для загрузки в API MISP
+// TagsMispFormat формат MISP типа Tags для взаимодействия с API MISP
 type TagsMispFormat struct {
 	Name           string `json:"name"`
 	Colour         string `json:"colour"`
@@ -218,13 +219,13 @@ type TagsMispFormat struct {
 	IsCustomGalaxy bool   `json:"is_custom_galaxy"`
 }
 
-// EventObjectTagsMispFormat описание формата MISP для загрузки в event.object.tags
+// EventObjectTagsMispFormat формат MISP для загрузки в event.object.tags
 type EventObjectTagsMispFormat struct {
 	Event string `json:"event"`
 	Tag   string `json:"tag"`
 }
 
-// описание формата MISP типа Users для данных приходящих из API MISP
+// UsersSettingsMispFormat формат MISP типа Users для данных приходящих из API MISP
 // на GET запрос типа /admin/users
 type UsersSettingsMispFormat struct {
 	User         UserSettingsMispFormat         `json:"User"`
@@ -232,7 +233,7 @@ type UsersSettingsMispFormat struct {
 	Role         RoleSettingsMispFormat         `json:"Role"`
 }
 
-// описание формата сообщения типа 'User' приходящего от MISP на запрос /admin/users
+// UserSettingsMispFormat формат сообщения типа 'User' приходящего от MISP на запрос /admin/users
 // так как весь перечень информации о пользователе в настоящее время не нужен
 // 'лишние' свойства отключены
 type UserSettingsMispFormat struct {
@@ -261,7 +262,7 @@ type UserSettingsMispFormat struct {
 	//ForceLogout   bool   `json:"force_logout"`
 }
 
-// описание формата сообщения типа 'Role' приходящего от MISP на запрос /admin/users
+// RoleSettingsMispFormat формат сообщения типа 'Role' приходящего от MISP на запрос /admin/users
 type RoleSettingsMispFormat struct {
 	Id           string `json:"id"`
 	Name         string `json:"name"`
@@ -269,21 +270,22 @@ type RoleSettingsMispFormat struct {
 	PermSiteAmin bool   `json:"perm_site_admin"`
 }
 
-// описание формата сообщения типа 'Organisation' приходящего от MISP на запрос /admin/users
+// OrganisationSettingsMispFormat формат сообщения типа 'Organisation' приходящего от MISP на запрос /admin/users
 type OrganisationSettingsMispFormat struct {
 	Id   string `json:"id"`
 	Name string `json:"name"`
 }
 
-// описание формата сообщения типа 'Objects' (нет в спецификации API)
+// ListObjectsMispFormat формат сообщения типа 'Objects' (нет в спецификации API)
 // формируется на основе содержимого поля observables получаемого от TheHive
 // которое дополнительно содержит поле attachment
 type ListObjectsMispFormat struct {
-	sync.Mutex
+	mutex   sync.Mutex
 	objects map[int]ObjectsMispFormat
 }
 
 type ObjectsMispFormat struct {
+	Attribute       ListAttribute `json:"Attribute"`
 	ID              string        `json:"id"`
 	TemplateUUID    string        `json:"template_uuid"`
 	TemplateVersion string        `json:"template_version"`
@@ -294,7 +296,6 @@ type ObjectsMispFormat struct {
 	EventId         string        `json:"event_id"`
 	MetaCategory    string        `json:"meta-category"`
 	Distribution    string        `json:"distribution"`
-	Attribute       ListAttribute `json:"Attribute"`
 }
 
 type ListAttribute []AttributeMispFormat

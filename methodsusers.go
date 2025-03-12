@@ -4,7 +4,7 @@ func (umisp UsersMispFormat) GetUsersMisp() UsersMispFormat {
 	return umisp
 }
 
-func (umisp *UsersMispFormat) SetValueOrgIdUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueOrgIdUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (umisp *UsersMispFormat) SetValueOrgIdUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueServerIdUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueServerIdUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (umisp *UsersMispFormat) SetValueServerIdUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueEmailUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueEmailUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (umisp *UsersMispFormat) SetValueEmailUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueAuthkeyUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueAuthkeyUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -52,7 +52,7 @@ func (umisp *UsersMispFormat) SetValueAuthkeyUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueInvitedByUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueInvitedByUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -64,7 +64,7 @@ func (umisp *UsersMispFormat) SetValueInvitedByUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueGpgkeyUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueGpgkeyUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -76,7 +76,7 @@ func (umisp *UsersMispFormat) SetValueGpgkeyUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueCertifPublicUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueCertifPublicUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -88,7 +88,7 @@ func (umisp *UsersMispFormat) SetValueCertifPublicUsersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueNidsSidUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueNidsSidUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -100,7 +100,7 @@ func (umisp *UsersMispFormat) SetValueNidsSidUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueNewsreadUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueNewsreadUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -112,7 +112,7 @@ func (umisp *UsersMispFormat) SetValueNewsreadUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueRoleIdUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueRoleIdUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -124,7 +124,7 @@ func (umisp *UsersMispFormat) SetValueRoleIdUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueChangePwUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueChangePwUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -136,7 +136,7 @@ func (umisp *UsersMispFormat) SetValueChangePwUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueExpirationUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueExpirationUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -148,7 +148,7 @@ func (umisp *UsersMispFormat) SetValueExpirationUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueCurrentLoginUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueCurrentLoginUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -160,7 +160,7 @@ func (umisp *UsersMispFormat) SetValueCurrentLoginUsersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueLastLoginUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueLastLoginUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -172,7 +172,7 @@ func (umisp *UsersMispFormat) SetValueLastLoginUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueDateCreatedUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueDateCreatedUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -184,7 +184,7 @@ func (umisp *UsersMispFormat) SetValueDateCreatedUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueDateModifiedUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueDateModifiedUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -196,7 +196,7 @@ func (umisp *UsersMispFormat) SetValueDateModifiedUsersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueAutoalertUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueAutoalertUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -208,7 +208,7 @@ func (umisp *UsersMispFormat) SetValueAutoalertUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueTermsacceptedUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueTermsacceptedUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -220,7 +220,7 @@ func (umisp *UsersMispFormat) SetValueTermsacceptedUsersMisp(v interface{}) bool
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueContactalertUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueContactalertUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -232,7 +232,7 @@ func (umisp *UsersMispFormat) SetValueContactalertUsersMisp(v interface{}) bool 
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueDisabledUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueDisabledUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {
@@ -244,7 +244,7 @@ func (umisp *UsersMispFormat) SetValueDisabledUsersMisp(v interface{}) bool {
 	return isSuccess
 }
 
-func (umisp *UsersMispFormat) SetValueForceLogoutUsersMisp(v interface{}) bool {
+func (umisp *UsersMispFormat) SetValueForceLogoutUsersMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(bool); ok {

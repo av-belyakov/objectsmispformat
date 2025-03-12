@@ -4,7 +4,7 @@ func (gmisp GalaxyElementMispFormat) GetGalaxyElementMisp() GalaxyElementMispFor
 	return gmisp
 }
 
-func (gmisp *GalaxyElementMispFormat) SetValueIdGalaxyElementMisp(v interface{}) bool {
+func (gmisp *GalaxyElementMispFormat) SetValueIdGalaxyElementMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -16,7 +16,7 @@ func (gmisp *GalaxyElementMispFormat) SetValueIdGalaxyElementMisp(v interface{})
 	return isSuccess
 }
 
-func (gmisp *GalaxyElementMispFormat) SetValueGalaxyClusterIdGalaxyElementMisp(v interface{}) bool {
+func (gmisp *GalaxyElementMispFormat) SetValueGalaxyClusterIdGalaxyElementMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -28,7 +28,7 @@ func (gmisp *GalaxyElementMispFormat) SetValueGalaxyClusterIdGalaxyElementMisp(v
 	return isSuccess
 }
 
-func (gmisp *GalaxyElementMispFormat) SetValueKeyGalaxyElementMisp(v interface{}) bool {
+func (gmisp *GalaxyElementMispFormat) SetValueKeyGalaxyElementMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {
@@ -40,7 +40,7 @@ func (gmisp *GalaxyElementMispFormat) SetValueKeyGalaxyElementMisp(v interface{}
 	return isSuccess
 }
 
-func (gmisp *GalaxyElementMispFormat) SetValueValueGalaxyElementMisp(v interface{}) bool {
+func (gmisp *GalaxyElementMispFormat) SetValueValueGalaxyElementMisp(v any) bool {
 	var isSuccess bool
 
 	if data, ok := v.(string); ok {

@@ -15,6 +15,10 @@ func NewListAttributesMispFormat() *ListAttributesMispFormat {
 		attributes: make(map[int]AttributesMispFormat)}
 }
 
+func NewAttributes() *AttributesMispFormat {
+	return &AttributesMispFormat{}
+}
+
 func createNewAttributesMisp() AttributesMispFormat {
 	return AttributesMispFormat{
 		Category:       "Other",
@@ -34,15 +38,15 @@ func (lambda *ListAttributesMispFormat) GetCountList() int {
 }
 
 func (lambda *ListAttributesMispFormat) CleanList() {
-	lambda.Lock()
-	defer lambda.Unlock()
+	lambda.mutex.Lock()
+	defer lambda.mutex.Unlock()
 
 	lambda.attributes = map[int]AttributesMispFormat{}
 }
 
 func (lambda *ListAttributesMispFormat) DelElementList(num int) (AttributesMispFormat, bool) {
-	lambda.Lock()
-	defer lambda.Unlock()
+	lambda.mutex.Lock()
+	defer lambda.mutex.Unlock()
 
 	var (
 		ok   bool
@@ -86,6 +90,10 @@ func (a *AttributesMispFormat) Comparison(newAttributes *AttributesMispFormat) b
 		return false
 	}
 
+	if a.ObjectId != newAttributes.ObjectId {
+		return false
+	}
+
 	if a.ObjectRelation != newAttributes.ObjectRelation {
 		return false
 	}
@@ -115,27 +123,80 @@ func (a *AttributesMispFormat) Comparison(newAttributes *AttributesMispFormat) b
 	return true
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueObjectId(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+// MatchingAndReplacement выполняет сопоставление элементов объекта и их замену
+func (a *AttributesMispFormat) MatchingAndReplacement(newAttributes AttributesMispFormat) AttributesMispFormat {
+	if a.ToIds && a.ToIds != newAttributes.ToIds {
+		newAttributes.ToIds = a.ToIds
+	}
+
+	if a.Deleted && a.Deleted != newAttributes.Deleted {
+		newAttributes.Deleted = a.Deleted
+	}
+
+	if a.DisableCorrelation && a.DisableCorrelation != newAttributes.DisableCorrelation {
+		newAttributes.DisableCorrelation = a.DisableCorrelation
+	}
+
+	if a.EventId != "" && a.EventId != newAttributes.EventId {
+		newAttributes.EventId = a.EventId
+	}
+
+	if a.ObjectId != "" && a.ObjectId != newAttributes.ObjectId {
+		newAttributes.ObjectId = a.ObjectId
+	}
+
+	if a.ObjectRelation != "" && a.ObjectRelation != newAttributes.ObjectRelation {
+		newAttributes.ObjectRelation = a.ObjectRelation
+	}
+
+	if a.Category != "" && a.Category != newAttributes.Category {
+		newAttributes.Category = a.Category
+	}
+
+	if a.Type != "" && a.Type != newAttributes.Type {
+		newAttributes.Type = a.Type
+	}
+
+	if a.Value != "" && a.Value != newAttributes.Value {
+		newAttributes.Value = a.Value
+	}
+
+	if a.Distribution != "" && a.Distribution != newAttributes.Distribution {
+		newAttributes.Distribution = a.Distribution
+	}
+
+	if a.SharingGroupId != "" && a.SharingGroupId != newAttributes.SharingGroupId {
+		newAttributes.SharingGroupId = a.SharingGroupId
+	}
+
+	if a.Comment != "" && a.Comment != newAttributes.Comment {
+		newAttributes.Comment = a.Comment
+	}
+
+	return newAttributes
+}
+
+func (lamisp *ListAttributesMispFormat) SetValueObjectId(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.ObjectId = fmt.Sprint(v)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueObjectRelation(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueObjectRelation(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.ObjectRelation = fmt.Sprint(v)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueCategory(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueCategory(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.Category = fmt.Sprint(v)
@@ -169,9 +230,9 @@ func (lamisp *ListAttributesMispFormat) AutoSetValueCategory(v string, num int) 
 	}
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueType(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueType(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.Type = fmt.Sprint(v)
@@ -239,8 +300,8 @@ func (lamisp *ListAttributesMispFormat) AutoSetValueType(v string, num int) {
 	}
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueValue(v interface{}, num int) {
-	lamisp.Lock()
+func (lamisp *ListAttributesMispFormat) SetValueValue(v any, num int) {
+	lamisp.mutex.Lock()
 
 	value := fmt.Sprint(v)
 	tmp := lamisp.getAttributesMisp(num)
@@ -250,7 +311,7 @@ func (lamisp *ListAttributesMispFormat) SetValueValue(v interface{}, num int) {
 	//надо разблокировать Mutex до того как использовать lamisp.AutoSetValueCategoryAttributesMisp и
 	//AutoSetValueType так как эти два метода используют методы AutoSetValueCategory и
 	//AutoSetValueType вызывающие повторную блокировку Mutex
-	lamisp.Unlock()
+	lamisp.mutex.Unlock()
 
 	//дополнительно, если значение подподает под рег. выражение типа "8030073:193.29.19.55"
 	//то устанавливаем дополнительное значение типа в поле "object_relation"
@@ -270,18 +331,18 @@ func (lamisp *ListAttributesMispFormat) SetValueValue(v interface{}, num int) {
 	}
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueUuid(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueUuid(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.Uuid = fmt.Sprint(v)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueTimestamp(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueTimestamp(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	if dt, ok := v.(float64); ok {
@@ -291,36 +352,36 @@ func (lamisp *ListAttributesMispFormat) SetValueTimestamp(v interface{}, num int
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueDistribution(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueDistribution(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.Distribution = fmt.Sprint(v)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueSharingGroupId(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueSharingGroupId(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.SharingGroupId = fmt.Sprint(v)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueComment(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueComment(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.Comment = fmt.Sprint(v)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueFirstSeen(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueFirstSeen(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	if dt, ok := v.(float64); ok {
@@ -330,9 +391,9 @@ func (lamisp *ListAttributesMispFormat) SetValueFirstSeen(v interface{}, num int
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueLastSeen(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueLastSeen(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	if dt, ok := v.(float64); ok {
@@ -342,9 +403,9 @@ func (lamisp *ListAttributesMispFormat) SetValueLastSeen(v interface{}, num int)
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueToIds(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueToIds(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	if data, ok := v.(bool); ok {
@@ -354,9 +415,9 @@ func (lamisp *ListAttributesMispFormat) SetValueToIds(v interface{}, num int) {
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueDeleted(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueDeleted(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	if data, ok := v.(bool); ok {
@@ -366,9 +427,9 @@ func (lamisp *ListAttributesMispFormat) SetValueDeleted(v interface{}, num int) 
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) SetValueDisableCorrelation(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) SetValueDisableCorrelation(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	if data, ok := v.(bool); ok {
@@ -378,9 +439,9 @@ func (lamisp *ListAttributesMispFormat) SetValueDisableCorrelation(v interface{}
 	lamisp.attributes[num] = tmp
 }
 
-func (lamisp *ListAttributesMispFormat) HandlingValueEventId(v interface{}, num int) {
-	lamisp.Lock()
-	defer lamisp.Unlock()
+func (lamisp *ListAttributesMispFormat) HandlingValueEventId(v any, num int) {
+	lamisp.mutex.Lock()
+	defer lamisp.mutex.Unlock()
 
 	tmp := lamisp.getAttributesMisp(num)
 	tmp.EventId = fmt.Sprint(v)
@@ -391,7 +452,7 @@ func (lamisp *ListAttributesMispFormat) HandlingValueEventId(v interface{}, num 
 // при этом на эти поля возможно вляиние других функций корректировщиков, например,
 // функции getNewListAttributes, которая применяется для совмещения списков Attributes
 // и Tags
-func (lamisp *ListAttributesMispFormat) HandlingValueDataType(i interface{}, num int) {
+func (lamisp *ListAttributesMispFormat) HandlingValueDataType(i any, num int) {
 	v := fmt.Sprint(i)
 
 	//выполняем автоматическое изменение значения свойства Category
