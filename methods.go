@@ -53,9 +53,8 @@ func (o *ListFormatsMISP) ComparisonEvent(v *EventsMispFormat) bool {
 }
 
 // MatchingAndReplacementEvents выполняет сопоставление элементов объекта и их замену
-func (o *ListFormatsMISP) MatchingAndReplacementEvents(v EventsMispFormat) {
-	newEvent := o.Event.MatchingAndReplacement(v)
-	o.Event = &newEvent
+func (o *ListFormatsMISP) MatchingAndReplacementEvents(v EventsMispFormat) EventsMispFormat {
+	return v.MatchingAndReplacement(*o.Event)
 }
 
 // ComparisonReports выполняет сравнение свойств объекта Reports
@@ -64,9 +63,8 @@ func (o *ListFormatsMISP) ComparisonReports(v *EventReports) bool {
 }
 
 // MatchingAndReplacementReport выполняет сопоставление элементов объекта и их замену
-func (o *ListFormatsMISP) MatchingAndReplacementReport(v EventReports) {
-	newEventReport := o.Reports.MatchingAndReplacement(v)
-	o.Reports = &newEventReport
+func (o *ListFormatsMISP) MatchingAndReplacementReport(v EventReports) EventReports {
+	return v.MatchingAndReplacement(*o.Reports)
 }
 
 // ComparisonAttributes выполняет сравнение свойств объекта Attributes
@@ -96,20 +94,18 @@ func (o *ListFormatsMISP) ComparisonAttributes(v []*AttributesMispFormat) bool {
 }
 
 // MatchingAndReplacementAttributes выполняет сопоставление элементов объекта и их замену
-func (o *ListFormatsMISP) MatchingAndReplacementAttributes(v []*AttributesMispFormat) {
-	if len(o.Attributes) != len(v) {
-		return
-	}
-
+func (o *ListFormatsMISP) MatchingAndReplacementAttributes(v []*AttributesMispFormat) []*AttributesMispFormat {
 	currentAttributes := o.GetAttributes()
-	for i := 0; i < len(currentAttributes); i++ {
-		for j := 0; j < len(v); j++ {
-			if currentAttributes[i].ObjectId == v[j].ObjectId {
+	for i := range v {
+		for j := range currentAttributes {
+			if v[i].ObjectId == currentAttributes[j].ObjectId {
 				newAttr := currentAttributes[i].MatchingAndReplacement(*v[j])
-				currentAttributes[i] = &newAttr
+				v[i] = &newAttr
 			}
 		}
 	}
+
+	return v
 }
 
 // ComparisonObjects выполняет сравнение свойств объекта Objects
@@ -140,10 +136,10 @@ func (o *ListFormatsMISP) ComparisonObjects(v map[int]*ObjectsMispFormat) bool {
 
 // MatchingAndReplacementObjects выполняет сопоставление элементов объекта и их замену
 func (o *ListFormatsMISP) MatchingAndReplacementObjects(v map[int]*ObjectsMispFormat) map[int]*ObjectsMispFormat {
-	for _, currentObject := range o.GetObjects() {
-		for key, addedObject := range v {
-			if currentObject.ID == addedObject.ID {
-				newAddObject := currentObject.MatchingAndReplacement(*addedObject)
+	for key, obj := range v {
+		for _, currentObject := range o.GetObjects() {
+			if currentObject.ID == obj.ID {
+				newAddObject := obj.MatchingAndReplacement(*currentObject)
 				v[key] = &newAddObject
 			}
 		}
