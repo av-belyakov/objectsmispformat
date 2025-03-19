@@ -247,3 +247,113 @@ func (lomf *ListObjectsMispFormat) getObjectMisp(num int) ObjectsMispFormat {
 
 	return tmp
 }
+
+// GetEventId идентификатор события
+func (o *ObjectsMispFormat) GetEventId() string {
+	return o.EventId
+}
+
+// SetEventId идентификатор события
+func (o *ObjectsMispFormat) SetEventId(v string) {
+	o.EventId = v
+}
+
+// GetID  идентификатор объекта
+func (o *ObjectsMispFormat) GetID() string {
+	return o.ID
+}
+
+// SetID идентификатор объекта
+func (o *ObjectsMispFormat) SetID(v string) {
+	o.ID = v
+}
+
+// GetTemplateUUID  идентификатор шаблона объекта
+func (o *ObjectsMispFormat) GetTemplateUUID() string {
+	return o.TemplateUUID
+}
+
+// SetTemplateUUID идентификатор шаблона объекта
+func (o *ObjectsMispFormat) SetTemplateUUID(v string) {
+	o.TemplateUUID = v
+}
+
+// GetTemplateVersion версия шаблона объекта
+func (o *ObjectsMispFormat) GetTemplateVersion() string {
+	return o.TemplateVersion
+}
+
+// SetTemplateVersion версия шаблона объекта
+func (o *ObjectsMispFormat) SetTemplateVersion(v string) {
+	o.TemplateVersion = v
+}
+
+// GetFirstSeen время первого фиксирования
+func (o *ObjectsMispFormat) GetFirstSeen() string {
+	return o.FirstSeen
+}
+
+// SetFirstSeen время первого фиксирования
+func (o *ObjectsMispFormat) SetFirstSeen(v string) {
+	o.FirstSeen = v
+}
+
+// GetTimestamp временная метка
+func (o *ObjectsMispFormat) GetTimestamp() string {
+	return o.Timestamp
+}
+
+// SetTimestamp временная метка
+func (o *ObjectsMispFormat) SetTimestamp(v string) {
+	o.Timestamp = v
+}
+
+// GetName наименование объекта
+func (o *ObjectsMispFormat) GetName() string {
+	return o.Name
+}
+
+// SetName наименование объекта
+func (o *ObjectsMispFormat) SetName(v string) {
+	o.Name = v
+}
+
+// GetDescription описание объекта
+func (o *ObjectsMispFormat) GetDescription() string {
+	return o.Description
+}
+
+// SetDescription описание объекта
+func (o *ObjectsMispFormat) SetDescription(v string) {
+	o.Description = v
+}
+
+// GetMetaCategory метакатегория
+func (o *ObjectsMispFormat) GetMetaCategory() string {
+	return o.MetaCategory
+}
+
+// SetMetaCategory метакатегория
+func (o *ObjectsMispFormat) SetMetaCategory(v string) {
+	o.MetaCategory = v
+}
+
+// GetDistribution распределение
+func (o *ObjectsMispFormat) GetDistribution() string {
+	return o.Distribution
+}
+
+// SetDistribution распределение
+func (o *ObjectsMispFormat) SetDistribution(v string) {
+	o.Distribution = v
+}
+
+// GetListAttribute список атрибутов
+func (o *ObjectsMispFormat) GetListAttribute() ListAttribute {
+	return o.Attribute
+}
+
+// SetListAttribute список атрибутов
+func (o *ObjectsMispFormat) SetListAttribute(v ListAttribute) {
+	o.Attribute = v
+}
