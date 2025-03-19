@@ -1,6 +1,8 @@
 package objectsmispformat
 
-import "slices"
+import (
+	"slices"
+)
 
 func NewListFormatsMISP() *ListFormatsMISP {
 	return &ListFormatsMISP{

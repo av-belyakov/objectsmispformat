@@ -10,14 +10,11 @@ import (
 )
 
 func TestEventMisp(t *testing.T) {
-	muuid := uuid.NewString()
-
 	mainEvent := objectsmispformat.NewEventMisp()
 	mainEvent.SetOrgId("633fba874")
 	mainEvent.SetOrgcId("fa6f432")
 	mainEvent.SetDistribution("some string")
 	mainEvent.SetInfo("some info")
-	mainEvent.SetUUID(muuid)
 	mainEvent.SetAnalysis("1")
 	mainEvent.SetAttributeCount("2233")
 	mainEvent.SetSharingGroupId("tw7-6e2-4we")
@@ -34,7 +31,6 @@ func TestEventMisp(t *testing.T) {
 	incomingEvent.SetOrgcId("a629df")
 	incomingEvent.SetDistribution("some distribution string")
 	incomingEvent.SetInfo("new some info")
-	incomingEvent.SetUUID(muuid)
 	incomingEvent.SetAnalysis("2")
 	incomingEvent.SetAttributeCount("--2233")
 	incomingEvent.SetSharingGroupId("55e-p32-4we")

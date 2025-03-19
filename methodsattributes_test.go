@@ -3,15 +3,12 @@ package objectsmispformat_test
 import (
 	"testing"
 
-	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/av-belyakov/objectsmispformat"
 )
 
 func TestAttributes(t *testing.T) {
-	auuid := uuid.NewString()
-
 	mainAttributes := objectsmispformat.NewAttributes()
 	mainAttributes.SetEventId("te7d2")
 	mainAttributes.SetObjectId("d1329-1s")
@@ -19,7 +16,6 @@ func TestAttributes(t *testing.T) {
 	mainAttributes.SetCategory("category one")
 	mainAttributes.SetType("some type")
 	mainAttributes.SetValue("some value")
-	mainAttributes.SetUuid(auuid)
 	mainAttributes.SetDistribution("new distr")
 	mainAttributes.SetSharingGroupId("7899312")
 	mainAttributes.SetComment("fast comment")
@@ -34,7 +30,6 @@ func TestAttributes(t *testing.T) {
 	incomingAttributes.SetCategory("category two")
 	incomingAttributes.SetType("my some type")
 	incomingAttributes.SetValue("my some value")
-	incomingAttributes.SetUuid(auuid)
 	incomingAttributes.SetDistribution("new distr")
 	incomingAttributes.SetSharingGroupId("632848")
 	incomingAttributes.SetComment("fast alfa comment")

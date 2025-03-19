@@ -72,10 +72,6 @@ func (e *EventsMispFormat) Comparison(newEvents *EventsMispFormat) bool {
 		return false
 	}
 
-	if e.Uuid != newEvents.Uuid {
-		return false
-	}
-
 	if e.Date != newEvents.Date {
 		return false
 	}
